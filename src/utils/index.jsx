@@ -7,7 +7,7 @@ export const customFetch = axios.create({
 });
 */
 
-const productionUrl = 'https://les-bruyeres.onrender.com/api';
+const productionUrl = 'http://localhost:3000/';
 export const customFetch = axios.create({
   baseURL: productionUrl,
 });
