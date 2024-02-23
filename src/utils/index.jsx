@@ -7,7 +7,7 @@ export const customFetch = axios.create({
 });
 */
 
-const productionUrl = 'https://les-bruyeres.onrender.com';
+const productionUrl = 'https://les-bruyeres.onrender.com/api';
 export const customFetch = axios.create({
   baseURL: productionUrl,
 });
