@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire des artciles</title>
+    <link rel="stylesheet" href="/css/articles.css">
+</head>
+
+<body>
+    <h1>Les artciles</h1>
+   <a href="/api/admin">retour</a>
+    <!-- Formulaire pour ajouter une nouveau article -->
+    <form id="form-add-article">
+        <h1>Nouveau article :</h1>
+        <label for="new-article-name">Titre :</label>
+        <input type="text" id="new-article-name" name="newArticleName" required> <br>
+        <label for="new-article-img">Image :</label>
+        <input type="url" id="new-article-img" name="newArticleImg"><br>
+        <label for="new-article-description">Description :</label><br>
+        <textarea type="text" id="new-article-description" name="newArticleDescription" rows="4"
+            cols="50"></textarea><br>
+        <label for="new-article-size">Taille :</label>
+        <input type="text" id="new-article-size" name="newArticleSize"><br>
+        <label for="new-article-stock-quantity">Quantité en stock :</label>
+        <input type="number" id="new-article-stock-quantity" name="newArticleStockQuantity"><br>
+        <label for="new-article-price">Prix :</label>
+        <input type="number" id="new-article-price" name="newArticlePrice"><br>
+
+
+
+
+
+
+        <label for="categorie">Catégorie :</label>
+        <select name="categorie" id="categorie">
+            <% categories.forEach((e)=> { %>
+                
+                <option value="<%= e.id %>">
+                    <%= e.title %>
+                </option>
+                
+                <% }); %>
+        </select>
+        <br>
+
+        <label for="event">L'événement :</label>
+        <select name="event" id="event">
+            <% events.forEach((e)=> { %>
+                
+                <option value="<%= e.id %>">
+                    <%= e.title %>
+                </option>
+                
+                <% }); %>
+        </select>
+        <br>
+
+        <label for="new-article-brand">La marque :</label>
+        <input type="text" id="new-article-brand" name="newArticleBrand"><br>
+
+
+        <button type="submit">Ajouter</button>
+    </form><br><br>
+
+    <p>Nombre d'articles : <%=articles.length %>
+    </p>
+    <div class="container">
+        <% articles.forEach((e)=>{%>
+            <% if(e.display_stock_article){ %>
+                <div class="article-active">
+                    <div> <a href="articles/<%=e.id %>">
+                            <%=e.name %>
+                    </div>
+                    <img src="<%=e.img %> " alt="différent représentation des articles ">
+                    </a>
+                </div>
+                <% } %>
+                    <% if(!e.display_stock_article){ %>
+                        <div class="article-desactive">
+                            <div> <a href="articles/<%=e.id %>">
+                                    <%=e.name %>
+                            </div>
+                            <img src="<%=e.img %> " alt="différent représentation des articles ">
+                            </a>
+                        </div>
+                        <% } %>
+                            <% }); %>
+    </div>
+
+
+
+    <script src="/js/articles/addArticles.js"></script>
+
+</body>
+
+</html>

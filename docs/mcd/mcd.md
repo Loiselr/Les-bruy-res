@@ -1,0 +1,14 @@
+CATEGORY: title, display_category
+TO BELONG, 1N [composée] ARTICLE, 0N [composante] CATEGORY
+ARTICLE: name, img, type, description, size, stock quantity, article price, display_stock_article, display_featured_article
+TO APPERTAIN,0N [composée] ARTICLE, 0N [composante] EVENT
+
+TO HAVE, 0N USER, 11 CART
+CART: cart_reference, user_reference
+TO CONTAIN, 1N [composée] ARTICLE, 0N [composante] CART: article_quantity
+EVENT: title, display_event
+
+USER: email, password, name, address, phone number, role
+TO PAY, 11 INVOICE, 0N USER: paid_at
+INVOICE: invoice reference, user_reference, process_status, issued_at
+:

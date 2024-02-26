@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire events</title>
+    <link rel="stylesheet" href="/css/eventAndCategory.css">
+</head>
+<body>
+    <h1>Les events</h1>
+    <a href="/api/admin">retour</a>
+     <!-- Formulaire pour ajouter une nouvelle catégorie -->
+     <form id="form-add-event" >
+        <label for="new-event-title">Nouveau event :</label>
+        <input type="text" id="new-event-title" name="newEvenTitle" required>
+        <button type="submit">Ajouter</button>
+    </form><br><br>
+
+    
+    <% events.forEach(event => { %>
+        <form id="form-event-<%= event.id %>" >
+            <label for="title-<%= event.id %>">
+                <%= event.title %> :
+                <!-- Icône pour l'état de la catégorie -->
+                <span class="icon <% if (event.display_event) { %>icon-green<% } else { %>icon-red<% } %>"></span>
+            </label>
+            <input type="text" id="title-<%= event.id %>" name="title" value="<%= event.title %>" >
+            <button type="submit">Mettre à jour</button>
+            <input type="checkbox" id="toggle-event-<%= event.id %>" name="toggleEvent" value="<%= event.id %>" <% if (event.display_event) { %> checked <% } %>>
+            <label for="toggle-event-<%= event.id %>">Activer/Désactiver</label>
+            <br>
+        </form>
+    <% }) %>
+
+    <script src="/js/events/addEvents.js"></script>
+    <script src="/js/events/updateEvents.js"></script>
+</body>
+</html>

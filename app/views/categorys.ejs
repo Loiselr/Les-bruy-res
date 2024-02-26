@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Catégories</title>
+    <link rel="stylesheet" href="/css/eventAndCategory.css">
+</head>
+<body>
+    <h1>Les catégories</h1>
+    <a href="/api/admin">retour</a>
+     <!-- Formulaire pour ajouter une nouvelle catégorie -->
+     <form id="form-add-category" >
+        <label for="new-category-title">Nouvelle Catégorie :</label>
+        <input type="text" id="new-category-title" name="newCategoryTitle" required>
+        <button type="submit">Ajouter</button>
+    </form><br><br>
+
+    
+    <% categorys.forEach(category => { %>
+        <form id="form-category-<%= category.id %>" >
+            <label for="title-<%= category.id %>">
+                <%= category.title %> :
+                <!-- Icône pour l'état de la catégorie -->
+                <span class="icon <% if (category.display_category) { %>icon-green<% } else { %>icon-red<% } %>"></span>
+            </label>
+            <input type="text" id="title-<%= category.id %>" name="title" value="<%= category.title %>" >
+            <button type="submit">Mettre à jour</button>
+            <input type="checkbox" id="toggle-category-<%= category.id %>" name="toggleCategory" value="<%= category.id %>" <% if (category.display_category) { %> checked <% } %>>
+            <label for="toggle-category-<%= category.id %>">Activer/Désactiver</label>
+            <br>
+        </form>
+    <% }) %>
+
+    <script src="/js/categories/addCategorie.js"></script>
+    <script src="/js/categories/updateCategorie.js"></script>
+</body>
+</html>

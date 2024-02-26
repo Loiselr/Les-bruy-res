@@ -1,24 +1,50 @@
-# Logs
-logs
+# Ignore les fichiers/dossiers générés par l'environnement de développement
+node_modules/
+dist/
+.cache/
+coverage/
+
+
+# Ignore les fichiers de configuration spécifiques à certains éditeurs ou IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore les fichiers de logs et les fichiers temporaires
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+*.tmp
 
-node_modules
-dist
-dist-ssr
-*.local
+# Ignore les fichiers de configuration locaux
+.env
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Ignore les fichiers de sauvegarde
+*.bak
+*.backup
+*.swp
+
+# Ignore les fichiers de build spécifiques à certains langages/technologies
+*.class
+*.war
+*.ear
+*.jar
+
+# Ignore les fichiers de dépendances spécifiques à certains langages/technologies
+*.pyc
+*.pyo
+*.dll
+*.exe
+*.obj
+*.so
+*.o
+*.a
+*.lib
+*.dylib
+
+# Ignore les fichiers d'images et de vidéos volumineux
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.mp3
+*.mp4

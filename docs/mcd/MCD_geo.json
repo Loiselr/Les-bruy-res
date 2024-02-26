@@ -1,0 +1,43 @@
+{
+  "width": 574,
+  "height": 458,
+  "cx": [
+    [ "CATEGORY", 66 ],
+    [ "TO_BELONG", 198 ],
+    [ "ARTICLE", 351 ],
+    [ "TO_APPERTAIN", 513 ],
+    [ "TO_HAVE", 66 ],
+    [ "CART", 198 ],
+    [ "TO_CONTAIN", 351 ],
+    [ "EVENT", 513 ],
+    [ "USER", 66 ],
+    [ "TO_PAY", 198 ],
+    [ "INVOICE", 351 ]
+  ],
+  "cy": [
+    [ "CATEGORY", 102 ],
+    [ "TO_BELONG", 102 ],
+    [ "ARTICLE", 102 ],
+    [ "TO_APPERTAIN", 102 ],
+    [ "TO_HAVE", 254 ],
+    [ "CART", 254 ],
+    [ "TO_CONTAIN", 254 ],
+    [ "EVENT", 254 ],
+    [ "USER", 381 ],
+    [ "TO_PAY", 381 ],
+    [ "INVOICE", 381 ]
+  ],
+  "shift": [
+    [ "TO_BELONG,ARTICLE,0", 0 ],
+    [ "TO_BELONG,CATEGORY,0", 0 ],
+    [ "TO_APPERTAIN,ARTICLE,0", 0 ],
+    [ "TO_APPERTAIN,EVENT,0", 0 ],
+    [ "TO_HAVE,USER,0", 0 ],
+    [ "TO_HAVE,CART,0", 0 ],
+    [ "TO_CONTAIN,ARTICLE,0", 0 ],
+    [ "TO_CONTAIN,CART,0", 0 ],
+    [ "TO_PAY,INVOICE,0", 0 ],
+    [ "TO_PAY,USER,0", 0 ]
+  ],
+  "ratio": []
+}

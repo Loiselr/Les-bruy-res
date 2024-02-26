@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'artcile</title>
+    <link rel="stylesheet" href="/css/articles.css">
+</head>
+<body>
+   
+    <a href="/api/admin">retour accueil</a>
+    <a href="/api/admin/articles">retour</a>
+     <!-- Formulaire pour ajouter une nouveau article -->
+     <form id="form-add-article-<%=article.id  %>" >
+        <h1><%=article.name %> </h1>
+        <label for="new-article-name">Titre :</label>
+        <input type="text" id="new-article-name" name="newArticleName"  placeholder="<%=article.name %> "> <br>
+        <label for="new-article-img" >Image :</label>
+        <input type="url" id="new-article-img" name="newArticleImg" placeholder="<%=article.img %>" ><br>
+        <img src="<%=article.img %>" alt="image de l'article" width="20%" height="30%"><br>
+        <label for="new-article-description">Description :</label><br>
+        <textarea  type="text" id="new-article-description" name="newArticleDescription" rows="4" cols="50" placeholder="<%=article.description %>" ></textarea><br>
+        <label for="new-article-size">Taille :</label>
+        <input type="text" id="new-article-size" name="newArticleSize"  placeholder="<%=article.size %>"><br>
+        <label for="new-article-stock-quantity">Quantité en stock :</label>
+        <input type="number" id="new-article-stock-quantity" name="newArticleStockQuantity" placeholder="<%=article.stock_quantity %>" ><br>
+        <label for="new-article-price">Prix :</label>
+        <input type="number" id="new-article-price" name="newArticlePrice" placeholder="<%=article.article_price %>" ><br>
+        
+        <label for="categorie">Catégorie :</label>   
+        <select name="categorie" id="categorie">
+        <% categories.forEach((e)=>{%>         
+            <option value="<%= e.id %>" <% if (e.id === article.category_id) { %> selected <% } %>><%= e.title %></option>           
+                <% }) %>
+            </select>
+        <br>
+        <label for="event">L'événement :</label>
+        <select name="event" id="event">
+            <% events.forEach((e)=>{%>         
+                <option value="<%= e.id %>" <% if (e.id === article.event_id) { %> selected <% } %>><%= e.title %></option>            
+                    <% }) %>
+                </select>
+            <br>
+        <label for="new-article-brand">La marque :</label>
+        <input type="text" id="new-article-brand" name="newArticleBrand"  placeholder="<%=article.article_brand %>"><br>
+        <input type="checkbox" id="toggle-stock" name="toggleStock" value="<%= article.id %>" <% if (article.display_stock_article) { %> checked <% } %>> 
+            <label for="toggle-stock">En stock / Plus de stock</label><br>
+            <input type="checkbox" id="toggle-featured" name="toggleFeatured" value="<%= article.id %>" <% if (article.display_featured_article) { %> checked <% } %>> 
+            <label for="toggle-featured">Mettre en avant premiere / Ne pas mettre avant premiere</label><br>
+       <button type="submit">Tout mettre a jour</button>
+    </form><br><br>
+
+
+
+    <script src="/js/articles/updateArticles.js"></script>
+</body>
+</html>

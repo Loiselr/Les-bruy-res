@@ -1,0 +1,6 @@
+%syntax-version=1.0.0
+%project=bruyeres
+
+create 2024-02-06T09:58:32Z YannickCorbeaux <root@YayaPC> # création des tables de la base de données
+fields_update 2024-02-12T10:38:29Z YannickCorbeaux <root@YayaPC> # fix: ajout boolean article-event-category et ajout champ image à article
+add_cart_fonctionality 2024-02-15T17:13:40Z YannickCorbeaux <root@YayaPC> # ajout de tables gérant un panier pour le stocker en BDD et qu'il soit persisant pour les clients
