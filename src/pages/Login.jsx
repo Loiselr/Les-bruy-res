@@ -4,14 +4,14 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { loginUser } from '../features/user/userSlice';
 import { useDispatch } from 'react-redux';
-import {apiBaseUrl} from "./config.vite.js"
+
 /*
 const testingUrl = 'https://strapi-store-server.onrender.com/api';
 export const customFetchTest = axios.create({
   baseURL: testingUrl,
 });
 */
-const productionUrl = `${apiBaseUrl}/login`;
+const productionUrl = 'http://localhost:3000/api';
 export const customFetch = axios.create({
   baseURL: productionUrl,
 });
