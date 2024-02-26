@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { customFetch } from '../utils';
 import { OrdersList, SectionTitle } from '../components';
 
+{/*
 export const loader = (store) => async({ request }) => {
   //console.log(store);
   const user = store.getState().userState.user;
@@ -35,6 +36,7 @@ export const loader = (store) => async({ request }) => {
     return null;
   }
 };
+*/}
 
 const Orders = () => {
   return (

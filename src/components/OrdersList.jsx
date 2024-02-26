@@ -1,45 +1,64 @@
 import { useLoaderData } from 'react-router-dom';
-import day from 'dayjs';
-import advancedFormat from 'dayjs/plugin/advancedFormat';
-day.extend(advancedFormat);
 
 const OrdersList = () => {
-  const { orders } = useLoaderData();
   return (
     <div className='mt-8'>
       <h4 className='mb-4 capitalize'>
-        total orders : {orders.length()}
+        Nb de commandes : 5
       </h4>
+      
       <div className='overflow-x-auto '>
         <table className='table table-zebra'>
           {/* head */}
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Products</th>
-              <th>Cost</th>
-              <th className='hidden sm:block'>Date</th>
+              <th>Nom de livraison</th>
+              <th>Addresse de livraison</th>
+              <th>Nb de Produits</th>
+              <th>Prix TTC </th>
+              <th>Etat de la cde</th>
+              <th className='hidden sm:block'>Date de cde ou livraison</th>
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => {
-              console.log(order);
-              const id = order.id;
-              const { name, address, numItemsInCart, orderTotal, createdAt } =
-                order.attributes;
-              console.log(createdAt);
-              const date = day(createdAt).format('hh:mm a - MMM Do, YYYY ');
-              return (
-                <tr key={id}>
-                  <td>{name}</td>
-                  <td>{address}</td>
-                  <td>{numItemsInCart}</td>
-                  <td>{orderTotal}</td>
-                  <td className='hidden sm:block'>{date}</td>
-                </tr>
-              );
-            })}
+            <td>Banana Doe</td>
+            <td>148 rue du chemin vert 75014 Paris</td>
+            <td>10</td>
+            <td>79.90€</td>
+            <td>en préparation</td>
+            <td className='hidden sm:block'>28/02/2024</td>
+          </tbody>
+          <tbody>
+            <td>Banana Doe</td>
+            <td>148 rue du chemin vert 75014 Paris</td>
+            <td>2</td>
+            <td>15€</td>
+            <td>en cours de livraison</td>
+            <td className='hidden sm:block'>29/02/2024</td>
+          </tbody>
+          <tbody>
+            <td>Banana Doe</td>
+            <td>148 rue du chemin vert 75014 Paris</td>
+            <td>5</td>
+            <td>59.90€</td>
+            <td>livrée</td>
+            <td className='hidden sm:block'>16/01/2024</td>
+          </tbody>
+          <tbody>
+            <td>Banana Doe</td>
+            <td>148 rue du chemin vert 75014 Paris</td>
+            <td>15</td>
+            <td>159.90€</td>
+            <td>livrée</td>
+            <td className='hidden sm:block'>12/12/2023</td>
+          </tbody>
+          <tbody>
+            <td>Banana Doe</td>
+            <td>148 rue du chemin vert 75014 Paris</td>
+            <td>8</td>
+            <td>259.90€</td>
+            <td>livrée</td>
+            <td className='hidden sm:block'>10/12/2023</td>
           </tbody>
         </table>
       </div>

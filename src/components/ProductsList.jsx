@@ -7,7 +7,7 @@ const ProductsList = () => {
     <div className='mt-12 grid gap-y-8'>
       {products.map((product) => {
         //const { title, price, image, company } = product.attributes;
-        const { name, article_price, image } = product;
+        const { name, article_price, img } = product;
         //const eurosAmount = (price/100)+"€";
         return (
           <Link
@@ -17,8 +17,7 @@ const ProductsList = () => {
             shadow-xl hover:shadow-2xl duration-300 group'
           >
             <img
-              src={image}
-              // alt={title} 
+              src={img}
               alt={name}
               className='h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover group-hover:scale-105 
               transition duration-300'
@@ -30,7 +29,7 @@ const ProductsList = () => {
             </div>
             <p className='font-medium ml-0 sm:ml-auto text-lg'>
               {/*{eurosAmount}*/}
-              {article_price}
+              {article_price}€
             </p>
           </Link>
         );
