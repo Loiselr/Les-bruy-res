@@ -193,8 +193,7 @@ apiUser.route("/:id")
  */
 
 
-apiUser.route("/")
-  .get(checkSession, usersController.getAll)
-  .post(usersController.postOneUser);
+apiUser.route("/").get(checkSession, usersController.getAll);
+apiUser.route("/").post(usersController.postOneUser);
 
 export default apiUser;

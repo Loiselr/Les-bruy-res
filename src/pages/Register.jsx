@@ -21,7 +21,7 @@ export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {
-    console.log(data);
+   
     const response = await customFetch.post('/users', data);
     //const response = await customFetchTest.post('/auth/local/register', data);
     toast.success('Compte créé avec succès');
