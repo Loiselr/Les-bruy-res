@@ -38,11 +38,8 @@ export async function getOneUser(req, res) {
 export async function postOneUser(req, res) {
   try {
 
-    const bodyJson = req.body.forEach(element => {
-      JSON.parse(element);
-    });
 
-    console.log(`ici c'est le 1er :${bodyJson}`);
+
     const {
       password,
       passwordConfirm,
@@ -53,7 +50,16 @@ export async function postOneUser(req, res) {
       city,
       phone_number,
       is_admin,
-    } = bodyJson;
+    } = req.body;
+    console.log(password,
+      passwordConfirm,
+      name,
+      email,
+      address,
+      zip_code,
+      city,
+      phone_number,
+      is_admin,);
 
     //Vérification des passwords
     if (password !== passwordConfirm) {
