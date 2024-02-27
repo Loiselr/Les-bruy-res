@@ -135,9 +135,9 @@ const apiUser = express.Router();
  */
 
 apiUser.route("/:id")
-  .get(checkSession, usersController.getOneUser)
-  .put(jwt, usersController.updateOneUser)
-  .delete(jwt, usersController.deleteOne);
+  .get( usersController.getOneUser)
+  .put(usersController.updateOneUser)
+  .delete( usersController.deleteOne);
 
 /**
  * @swagger
@@ -193,7 +193,7 @@ apiUser.route("/:id")
  */
 
 
-apiUser.route("/").get(checkSession, usersController.getAll);
+apiUser.route("/").get(usersController.getAll);
 apiUser.route("/").post(usersController.postOneUser);
 
 export default apiUser;
