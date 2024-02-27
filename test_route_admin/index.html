@@ -22,10 +22,11 @@
         event.preventDefault();
 
         // Récupérer le token depuis le localStorage
-        const user = localStorage.getItem('user');
+        const user = localStorage.getItem('user').token;
         console.log(user)
 
         try {
+          console.log(user.token)
           // Envoi de la requête POST pour accéder à la partie admin
           const response = await fetch(`https://les-bruyeres.onrender.com/api/loginAdmin`, {
             method: "POST",
