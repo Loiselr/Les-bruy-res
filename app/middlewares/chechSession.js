@@ -5,7 +5,7 @@ export default async function checkSession(req, res, next) {
     if (!req.session.user) {
       // Si l'utilisateur n'est pas administrateur, envoie un message d'erreur d'accès refusé
       return res.status(403).json({
-        error: "Accès refusé. Vous n'êtes pas autorisé à accéder à cette ressource.",
+        error: "Accès refusé...",
       });
     }
     // Si tout est OK, passez au middleware suivant

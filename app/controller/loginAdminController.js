@@ -8,9 +8,9 @@ export async function login(req, res) {
     
     const dataUser = await userDatamapper.findEmail(req.user.email); // Recherche l'utilisateur dans la base de données en utilisant l'adresse e-mail extraite du token
     // Vérifie si l'utilisateur n'est pas administrateur
-    console.log(dataUser);
+    
     if (!dataUser) {
-      return res.status(403).json("Accès refusé. ");
+      return res.status(403).json("Accès refusé. Vous n'êtes pas autorisé à accéder à cette ressource.");
     }
 
 
