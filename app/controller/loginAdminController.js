@@ -5,7 +5,7 @@ import userDatamapper from "../datamapper/userDatamapper.js";
 // Fonction de gestion de la connexion
 export async function login(req, res) {
   try {
-    console.log(req.user);
+    
     const dataUser = await userDatamapper.findEmail(req.user.email); // Recherche l'utilisateur dans la base de données en utilisant l'adresse e-mail extraite du token
     // Vérifie si l'utilisateur n'est pas administrateur
     console.log(dataUser);
@@ -14,10 +14,10 @@ export async function login(req, res) {
     }
 
 
-    if (!dataUser.is_admin) {
+    if (dataUser.is_admin !== true) {
       // Si l'utilisateur n'est pas administrateur, envoie un message d'erreur d'accès refusé
       return res.status(403).json({
-        error: "Accès refusé. Vous n'êtes pas autorisé à accéder à cette ressource.",
+        error: "Accès refusé. ici",
       });
     }
 
