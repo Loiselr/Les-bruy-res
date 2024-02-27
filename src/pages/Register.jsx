@@ -1,7 +1,7 @@
 import { FormInput, SubmitBtn } from '../components';
-import { registerUser } from '../features/user/userSlice'
 import { Form, redirect, Link } from 'react-router-dom';
 import axios from 'axios';
+import { registerUser } from '../features/user/userSlice'
 
 //import { customFetch } from '../utils';
 import { toast } from 'react-toastify';
