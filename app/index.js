@@ -40,8 +40,9 @@ app.use(session({
 app.set("view engine", "ejs");
 app.set("views", "./app/views");
 const publicDirectory = join(__dirname, "..", "public");
+const dist = join(__dirname, "..", "dist");
 app.use(express.static(publicDirectory));
-
+app.use(express.static(dist));
 
 // Configuration de Swagger-UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
