@@ -29,6 +29,7 @@ export const action = async ({ request }) => {
     store.dispatch(registerUser(response.data));
     toast.success('Compte créé avec succès');
     return redirect('/');
+    
   } catch (error) {
     const errorMessage =
       error?.response?.data?.error?.message ||

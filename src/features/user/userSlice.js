@@ -51,6 +51,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { loginUser, logoutUser, toogleTheme } = userSlice.actions;
+export const { loginUser, logoutUser, toogleTheme,registerUser } = userSlice.actions;
 
 export default userSlice.reducer;
