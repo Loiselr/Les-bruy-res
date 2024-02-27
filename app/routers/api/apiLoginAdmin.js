@@ -1,5 +1,6 @@
 import express from "express";
 import * as loginAdminController from "../../controller/loginAdminController.js";
+import jwt from "../../middlewares/authentificationJwt.js";
 
 const apiLoginAdmin = express.Router();
 
@@ -37,6 +38,6 @@ const apiLoginAdmin = express.Router();
  *       '500':
  *         description: Erreur serveur
  */
-apiLoginAdmin.route("/").post(loginAdminController.login);
+apiLoginAdmin.route("/").post(jwt, loginAdminController.login);
 
 export default apiLoginAdmin;
