@@ -8,27 +8,24 @@
 </head>
 
 <body>
-
-
-  <form>
-
-    <label for="submit">accéder a la partie admin</label>
-    <input type="submit">
+  <form id="adminForm">
+    <label for="submit">Accéder à la partie admin</label>
+    <input type="submit" id="submitBtn">
   </form>
 
-
   <script>
-    import '../app/helpers/env.load.js'
-    const form = document.querySelector("form");
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const token = localStorage.getItem('token');
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("adminForm");
+      const submitBtn = document.getElementById("submitBtn");
 
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-      async function postToken(token) {
+        // Récupérer le token depuis le localStorage
+        const token = localStorage.getItem('token');
+
         try {
-
-          // Envoi de la requête PUT pour mettre à jour l'event
+          // Envoi de la requête POST pour accéder à la partie admin
           const response = await fetch(`${process.env.BASEAPI}/loginAdmin`, {
             method: "POST",
             headers: {
@@ -38,24 +35,21 @@
           });
 
           if (!response.ok) {
-            // Récupération du message d'erreur renvoyé par l'API
             const errorData = await response.json();
             const errorMessage = errorData.error;
-            alert(`Erreur lors de la mise à jour : ${errorMessage}`);
+            alert(`Erreur lors de l'accès à la partie admin : ${errorMessage}`);
             return;
           }
+
           const htmlContent = await response.text();
+          // Mettre à jour le contenu de la page avec la réponse de l'API
           document.body.innerHTML = htmlContent;
-
         } catch (error) {
-          console.error("Erreur lors de la requête:", error);
-          alert("Une erreur s'est produite lors de la mise à jour de l'event.");
+          console.error("Erreur lors de la requête :", error);
+          alert("Une erreur s'est produite lors de l'accès à la partie admin.");
         }
-      }
-      postToken(token)
-
+      });
     });
-
   </script>
 </body>
 
