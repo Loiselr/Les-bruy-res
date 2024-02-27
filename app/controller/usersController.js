@@ -37,8 +37,11 @@ export async function getOneUser(req, res) {
 //fonction qui permet de créer un user
 export async function postOneUser(req, res) {
   try {
-    console.log(`ici c'est le 1er :${req.body}`);
-    const bodyJson = JSON.parse(req.body);
+
+    const bodyJson = req.body.forEach(element => {
+      JSON.parse(element);
+    });
+
     console.log(`ici c'est le 1er :${bodyJson}`);
     const {
       password,
