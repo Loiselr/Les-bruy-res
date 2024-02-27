@@ -64,6 +64,7 @@ export async function postOneUser(req, res) {
 
     // Validation des données utilisateur
     const validationError = validateUserData(req.body);
+    console.log(validationError)
     if (validationError) {
       return res.status(400).json({ error: validationError });
     }
