@@ -37,8 +37,7 @@ export async function getOneUser(req, res) {
 //fonction qui permet de créer un user
 export async function postOneUser(req, res) {
   try {
-    const data = JSON.stringify(req.body);
-
+    console.log(typeof (req.body));
 
     const {
       password,
@@ -50,8 +49,10 @@ export async function postOneUser(req, res) {
       city,
       phone_number,
       is_admin,
-    } = data;
+    } = req.body;
 
+
+    console.log(req.body);
     //Vérification des passwords
     if (password !== passwordConfirm) {
       return res.status(403).json("Les mots de passe ne correspondent pas");

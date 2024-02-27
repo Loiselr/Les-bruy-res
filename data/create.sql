@@ -56,11 +56,11 @@ CREATE TABLE "user" (
     OR "zip_code" ~ '^97[1-8]\d{2}$' -- DOM
     OR "zip_code" ~ '^98[046-9]\d{2}$' -- TOM + monaco
     OR "zip_code" ~ '^00000$'
+    OR "zip_code" ~ '^$'
     ),
     "city" text,
     "phone_number" text CHECK(
-      "phone_number" ~ '^(.33.|0)\d{9}$' -- numéros de téléphone commençant par "+33 " ou "0" suivi de 9 chiffres uniquement.
-    ),
+      "phone_number" ~ '^(.33|0)\d{9}|^$'),
     "is_admin" boolean NOT NULL DEFAULT FALSE,
     "created_at" TIMESTAMPTZ NOT NULL DEFAULT now(),
     "updated_at" TIMESTAMPTZ
