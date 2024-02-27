@@ -46,9 +46,7 @@ app.use(express.static(publicDirectory));
 // Configuration de Swagger-UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Configuration de la route principale pour rediriger vers la documentation Swagger
-app.get("/", (req, res) => {
-  res.redirect("/api-docs");
-});
+
 
 const cheminAbsolu = join(__dirname, "../test_route_admin/index.html");
 app.get("/test_admin", (req, res) => {
