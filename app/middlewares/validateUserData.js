@@ -17,7 +17,7 @@ export function validateUserData(userData) {
         /^0[1-9]\d{3}$|^[1-8]\d{4}$|^9[0-59]\d{3}$|^97[1-8]\d{2}$|^98[046-9]\d{2}$|^00000$/
       ),
     city: Joi.string(),
-    phone_number: Joi.string().pattern(/^(.33.|0)\d{9}$/)
+    phone_number: Joi.string().pattern(/^(.33|0)\d{9}$/)
   });
 
   const { error } = schema.validate(userData);

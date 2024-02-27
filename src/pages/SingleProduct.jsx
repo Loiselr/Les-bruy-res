@@ -12,9 +12,7 @@ export const loader = async({params}) => {
 };
 
 const SingleProduct = () => {
-  const { product } = useLoaderData();
- 
-   
+  const { product } = useLoaderData();  
   const  { img, name, article_price, description } = product;
   const [amount, setAmount] = useState(1);
 

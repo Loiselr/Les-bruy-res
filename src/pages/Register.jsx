@@ -23,7 +23,6 @@ export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {
-    console.log(data);
     const response = await customFetch.post('/users',JSON.stringify(data), {
       headers: {
         'Content-Type': 'application/json'
