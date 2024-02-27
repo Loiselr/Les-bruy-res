@@ -37,6 +37,7 @@ export async function getOneUser(req, res) {
 //fonction qui permet de créer un user
 export async function postOneUser(req, res) {
   try {
+    console.log(req.body);
     const {
       password,
       passwordConfirm,
@@ -63,7 +64,7 @@ export async function postOneUser(req, res) {
 
     // Validation des données utilisateur
     const validationError = validateUserData(req.body);
-    
+
     if (validationError) {
       return res.status(400).json({ error: validationError });
     }
