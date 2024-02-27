@@ -11,6 +11,7 @@ export const customFetch = axios.create({
 const productionUrl = `${apiBaseUrl}`;
 export const customFetch = axios.create({
   baseURL: productionUrl,
+  withCredentials: true,
 });
 
 
