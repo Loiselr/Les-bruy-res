@@ -47,7 +47,7 @@ export async function postOneUser(req, res) {
       city,
       phone_number,
       is_admin,
-    } = data;
+    } = req.body;
 
     //Vérification des passwords
     if (password !== passwordConfirm) {
