@@ -19,10 +19,9 @@ export async function login(req, res) {
       address: req.user.address,
       phone_number: req.user.phone_number,
     };
-    const user = req.user;
 
     const token = jwt.sign(tokenData, secretKey, { expiresIn: "1h" });
-    return res.status(200).json({ token, user });
+    return res.status(200).json({ token, userData });
   } catch (error) {
     console.error("Une erreur est survenue : ", error);
     return res.status(500).json({

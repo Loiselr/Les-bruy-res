@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <form>
+
+    <label for="submit">accéder a la partie admin</label>
+    <input type="submit">
+  </form>
+
+
+  <script>
+    import baseApi from '../app/helpers/env.load.js'
+    const form = document.querySelector("form");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const token = localStorage.getItem('token');
+
+
+      async function postToken(token) {
+        try {
+
+          // Envoi de la requête PUT pour mettre à jour l'event
+          const response = await fetch(`${baseApi}/loginAdmin`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`
+            },
+          });
+
+          if (!response.ok) {
+            // Récupération du message d'erreur renvoyé par l'API
+            const errorData = await response.json();
+            const errorMessage = errorData.error;
+            alert(`Erreur lors de la mise à jour : ${errorMessage}`);
+            return;
+          }
+          const htmlContent = await response.text();
+          document.body.innerHTML = htmlContent;
+
+        } catch (error) {
+          console.error("Erreur lors de la requête:", error);
+          alert("Une erreur s'est produite lors de la mise à jour de l'event.");
+        }
+      }
+      postToken(token)
+
+    });
+
+  </script>
+</body>
+
+</html>

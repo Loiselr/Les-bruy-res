@@ -13,6 +13,7 @@ import { fileURLToPath } from "url";
 import session from "express-session";
 
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -40,9 +41,8 @@ app.use(session({
 app.set("view engine", "ejs");
 app.set("views", "./app/views");
 const publicDirectory = join(__dirname, "..", "public");
-const dist = join(__dirname, "..", "dist");
 app.use(express.static(publicDirectory));
-app.use(express.static(dist));
+
 
 // Configuration de Swagger-UI
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -50,8 +50,10 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get("/", (req, res) => {
   res.redirect("/api-docs");
 });
-
-
+const cheminAbsolu = join(__dirname, "../test_route_admin/index.html");
+app.get("/test_admin", (req, res) => {
+  res.sendFile(cheminAbsolu);
+});
 // on lance le router
 app.use(router);
 

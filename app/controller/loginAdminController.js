@@ -1,18 +1,11 @@
 import "../helpers/env.load.js";
-import jwt from "jsonwebtoken";
 import userDatamapper from "../datamapper/userDatamapper.js";
 
-const secretKey = process.env.SECRET_KEY_FOR_JWT;
 
 // Fonction de gestion de la connexion
 export async function login(req, res) {
   try {
-    const { token } = req.body; // Récupère le token JWT à partir du corps de la requête
-
-    // Vérification du token JWT
-    const decodedToken = jwt.verify(token, secretKey); // Décode le token JWT
-    // Gère l'erreur si le token n'est pas valide
-    const dataUser = await userDatamapper.findEmail(decodedToken.email); // Recherche l'utilisateur dans la base de données en utilisant l'adresse e-mail extraite du token
+    const dataUser = await userDatamapper.findEmail(req.user.email); // Recherche l'utilisateur dans la base de données en utilisant l'adresse e-mail extraite du token
     // Vérifie si l'utilisateur n'est pas administrateur
 
 
@@ -27,7 +20,7 @@ export async function login(req, res) {
         error: "Accès refusé. Vous n'êtes pas autorisé à accéder à cette ressource.",
       });
     }
-    
+
     req.session.user = dataUser.email;
     
     // Redirige l'utilisateur vers la page d'administration après une connexion réussie
