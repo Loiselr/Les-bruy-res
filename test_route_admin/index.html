@@ -18,7 +18,7 @@
 
 
   <script>
-    import baseApi from '../app/helpers/env.load.js'
+    import '../app/helpers/env.load.js'
     const form = document.querySelector("form");
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -29,7 +29,7 @@
         try {
 
           // Envoi de la requête PUT pour mettre à jour l'event
-          const response = await fetch(`${baseApi}/loginAdmin`, {
+          const response = await fetch(`${process.env.BASEAPI}/loginAdmin`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

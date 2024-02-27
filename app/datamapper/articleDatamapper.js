@@ -27,7 +27,7 @@ const articleDatamapper = {
         JOIN category
           ON category_has_article.category_id = category.id
       WHERE
-        ategory_has_article.article_id = article.id) AS category_titles
+        category_has_article.article_id = article.id) AS category_titles
       FROM article;`;
       const result = await client.query(query);
       return result.rows;
