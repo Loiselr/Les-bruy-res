@@ -27,14 +27,12 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     loginUser: (state, action) => {
-      console.log(state);
-      console.log(action.payload);
-      const user = { ...action.payload.user, token: action.payload.jwt };
-      state.user = user;
-
-      console.log(user);
-      localStorage.setItem("user", JSON.stringify(user));
+      const { userData, token } = action.payload;
+      const newUser = { ...userData, token: token};
+      state.user = newUser;
+      localStorage.setItem("user", JSON.stringify(newUser));
     },
+
     logoutUser: (state) => {
       state.user = null;
       localStorage.removeItem("user");
