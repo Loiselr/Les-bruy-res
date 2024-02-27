@@ -64,7 +64,7 @@ export async function postOneUser(req, res) {
     // Validation des données utilisateur
     const validationError = validateUserData(req.body);
     if (validationError) {
-      return res.status(400).json({ error: validationError });
+      return res.status(100).json({ error: validationError });
     }
 
     //on hash le password
