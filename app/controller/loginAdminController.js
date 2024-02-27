@@ -10,14 +10,14 @@ export async function login(req, res) {
     // Vérifie si l'utilisateur n'est pas administrateur
     console.log(dataUser);
     if (!dataUser) {
-      return res.status(403).json("Accès refusé. Vous n'êtes pas autorisé à accéder à cette ressource.");
+      return res.status(403).json("Accès refusé. ");
     }
 
 
-    if (dataUser.is_admin !== true) {
+    if (!dataUser.is_admin) {
       // Si l'utilisateur n'est pas administrateur, envoie un message d'erreur d'accès refusé
       return res.status(403).json({
-        error: "Accès refusé. ici",
+        error: "Accès refusé. Vous n'êtes pas autorisé à accéder à cette ressource.",
       });
     }
 
