@@ -1,4 +1,5 @@
 import { FormInput, SubmitBtn } from '../components';
+import { registerUser } from '../features/user/userSlice'
 import { Form, redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -25,8 +26,9 @@ export const action = async ({ request }) => {
     console.log(data);
     const response = await customFetch.post('/users', data);
     //const response = await customFetchTest.post('/auth/local/register', data);
+    store.dispatch(registerUser(response.data));
     toast.success('Compte créé avec succès');
-    return redirect('/login');
+    return redirect('/');
   } catch (error) {
     const errorMessage =
       error?.response?.data?.error?.message ||

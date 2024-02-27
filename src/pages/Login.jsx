@@ -29,8 +29,6 @@ export const action = (store) =>
       return redirect('/');
       
     } catch (error) {
-      console.log(error);
-      console.log(data);
       const errorMessage =
         error?.response?.data?.error?.message ||
         'svp vérifier votre accréditation';
