@@ -20,7 +20,7 @@ export async function login(req, res) {
       phone_number: req.user.phone_number,
     };
 
-    const token = jwt.sign(tokenData, secretKey, { expiresIn: "1h" });
+    const token = jwt.sign(tokenData, secretKey, { expiresIn: "72h" });
     return res.status(200).json({ token, userData });
   } catch (error) {
     console.error("Une erreur est survenue : ", error);
