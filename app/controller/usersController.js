@@ -37,7 +37,9 @@ export async function getOneUser(req, res) {
 //fonction qui permet de créer un user
 export async function postOneUser(req, res) {
   try {
-    console.log(req.body);
+    const data = JSON.stringify(req.body);
+
+
     const {
       password,
       passwordConfirm,
@@ -48,7 +50,7 @@ export async function postOneUser(req, res) {
       city,
       phone_number,
       is_admin,
-    } = req.body;
+    } = data;
 
     //Vérification des passwords
     if (password !== passwordConfirm) {
