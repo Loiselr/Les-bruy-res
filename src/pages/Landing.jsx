@@ -6,7 +6,7 @@ const url='/articles';
 
 export const loader = async () => {
   const response = await customFetch(url);
-  console.log(response.data);
+  
   //const products = response.data.data;
   const products = response.data;
   return { products };

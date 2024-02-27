@@ -13,7 +13,7 @@ export const loader = async({params}) => {
 
 const SingleProduct = () => {
   const { product } = useLoaderData();
-  console.log(product);
+ 
    
   const  { img, name, article_price, description } = product;
   const [amount, setAmount] = useState(1);

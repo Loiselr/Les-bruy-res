@@ -7,7 +7,7 @@ import pg from "pg";
 const client = new pg.Pool({
   connectionString: process.env.PG_URL,
   ssl: {
-    rejectUnauthorized: false // Permet de ne pas rejeter les certificats auto-signés
+    rejectUnauthorized: true // Permet de ne pas rejeter les certificats auto-signés
   }
 });
 
