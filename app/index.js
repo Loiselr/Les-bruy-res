@@ -14,14 +14,15 @@ import session from "express-session";
 import Redis from "redis";
 import connectRedis from "connect-redis";
 
-const RedisStore = new connectRedis(session);
+const RedisStore = connectRedis(session);
+
 
 // Créer un client Redis
 // Créer un client Redis
 const redisClient = Redis.createClient({
   host: "redis-16047.c311.eu-central-1-1.ec2.cloud.redislabs.com", // Adresse du serveur Redis
   port: 16047, // Port Redis
-  // password: 'mot-de-passe', // Mot de passe Redis (si nécessaire)
+   password: '4CuB7P1CTWeY45wdImYmxlCrxBEzSC1j', // Mot de passe Redis (si nécessaire)
 });
 
 
