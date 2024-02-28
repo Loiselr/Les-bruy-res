@@ -11,11 +11,14 @@ import swaggerUi from "swagger-ui-express";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import session from "express-session";
-const RedisStore = require("connect-redis")(session);
-const redis = require("redis");
+import Redis from "redis";
+import connectRedis from "connect-redis";
+
+const RedisStore = connectRedis(session);
 
 // Créer un client Redis
-const redisClient = redis.createClient({
+// Créer un client Redis
+const redisClient = Redis.createClient({
   host: "redis-16047.c311.eu-central-1-1.ec2.cloud.redislabs.com", // Adresse du serveur Redis
   port: 16047, // Port Redis
   // password: 'mot-de-passe', // Mot de passe Redis (si nécessaire)
