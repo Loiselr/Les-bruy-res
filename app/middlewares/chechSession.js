@@ -2,7 +2,7 @@ export default async function checkSession(req, res, next) {
   try {
     
     // Vérifie si l'utilisateur n'est pas administrateur
-    if (!req.session.user) {
+    if (!req.session || !req.session.user) {
       // Si l'utilisateur n'est pas administrateur, envoie un message d'erreur d'accès refusé
       return res.status(403).json({
         error: "Accès refusé...",
