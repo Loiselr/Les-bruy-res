@@ -22,7 +22,7 @@ const RedisStore = connectRedis(session);
 const redisClient = Redis.createClient({
   host: "redis-16047.c311.eu-central-1-1.ec2.cloud.redislabs.com", // Adresse du serveur Redis
   port: 16047, // Port Redis
-   password: '4CuB7P1CTWeY45wdImYmxlCrxBEzSC1j', // Mot de passe Redis (si nécessaire)
+  password: process.env.KEY_REDIS, // Mot de passe Redis (si nécessaire)
 });
 
 
