@@ -14,7 +14,7 @@ import session from "express-session";
 import Redis from "redis";
 import connectRedis from "connect-redis";
 
-const RedisStore = connectRedis(session);
+const RedisStore = new connectRedis(session);
 
 // Créer un client Redis
 // Créer un client Redis
