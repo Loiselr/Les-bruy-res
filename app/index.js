@@ -16,8 +16,6 @@ import connectRedis from "connect-redis";
 
 const RedisStore = connectRedis(session);
 
-
-// Créer un client Redis
 // Créer un client Redis
 const redisClient = Redis.createClient({
   host: "redis-16047.c311.eu-central-1-1.ec2.cloud.redislabs.com", // Adresse du serveur Redis
